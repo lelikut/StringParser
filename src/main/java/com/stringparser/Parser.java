@@ -14,7 +14,7 @@ public class Parser {
     private final char OPEN_PARENTHESIS = '(';
     private final char CLOSE_PARENTHESIS = ')';
     private final char SINGLE_QUOTE = '\'';
-//    private final char DOUBLE_QUOTE = '"';
+    //    private final char DOUBLE_QUOTE = '"';
     private final char COMMA = ',';
 
     private Map<String, String> variables = new HashMap<>();
@@ -187,17 +187,12 @@ public class Parser {
             if (token == OPEN_BRACKET) {
                 counterOB++;
             } else if (token == CLOSE_BRACKET) {
-                if (counterOB > counterCB) {
-                    counterCB++;
-                    shouldCheck = true;
-                }
+                counterCB++;
             } else if (token == OPEN_PARENTHESIS) {
                 counterOP++;
             } else if (token == CLOSE_PARENTHESIS) {
-                if (counterOP > counterCP) {
-                    counterCP++;
-                    shouldCheck = true;
-                }
+                counterCP++;
+                shouldCheck = true;
             } else if (token == SINGLE_QUOTE) {
                 if (stringType == StringType.NONE) {
                     stringType = StringType.SINGLE_QUOTE;
