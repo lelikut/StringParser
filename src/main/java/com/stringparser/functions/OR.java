@@ -15,6 +15,7 @@ public class OR implements Function {
     @Override
     public String parse(Parser parser, String content) {
         List<String> arguments = parser.retrieveArguments(content);
+        if (arguments.isEmpty()) return null;
         boolean result = arguments.stream()
                 .map(argument -> {
                     String parsed = parser.parseCode(argument);
